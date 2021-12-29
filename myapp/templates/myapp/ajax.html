@@ -1,0 +1,39 @@
+<script>
+    $("a.like-btn").click(function(e){
+        e.preventDefault();
+        console.log("Button Clicked");
+        var id = $(this).attr('data-sid');
+        console.log(id);
+        mydata={
+            id:id
+        };
+        $.ajax({
+            type : "GET",
+            url : 'like',
+            data : mydata,
+            success : function(data){
+                console.log(data.likes);
+                $('#'+id).text(data.likes);
+            }
+        })
+    });
+    $("a.btn-dislike").click(function(e){
+        e.preventDefault();
+        console.log("Button Clicked");
+        var id = $(this).attr('data-pid');
+        console.log(id);
+        mydata={
+            id:id
+        };
+        console.log(id);
+        $.ajax({
+            type : "GET",
+            url : 'dislike',
+            data : mydata,
+            success : function(data){
+                console.log(data.dislikes);
+                $('#'+id).text(data.dislikes);
+            }
+        })
+    });
+</script>

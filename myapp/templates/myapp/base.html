@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mini Blog{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.min.css' %}">
+</head>
+<body>
+    
+    <div class="container">
+        <h3 class='alert alert-warning text-center'>Mini Blog Website</h3>
+    </div>
+    {% block content %}
+    {% endblock content %}
+    <script src="{% static 'myapp/js/jquery.js' %}"></script>
+    <script src="{% static 'myapp/js/popper.js' %}"></script>
+    <script src="{% static 'myapp/js/bootstrap.min.js' %}"></script>
+    {% include 'myapp/ajax.html' %}
+</body>
+</html>
